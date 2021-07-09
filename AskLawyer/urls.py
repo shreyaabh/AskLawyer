@@ -19,6 +19,7 @@ from django.urls.conf import include
 from api import views
 from rest_framework.routers import DefaultRouter
 
+
 router=DefaultRouter()
 
 router.register('askUserapi',views.askUserModelViewset,basename='askUser')
@@ -28,5 +29,7 @@ router.register('answerapi',views.answerModelViewset,basename='answer')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('forum/',include('Forum.urls')),
     path('',include(router.urls)),
+    
 ]
