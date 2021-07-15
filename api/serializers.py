@@ -21,4 +21,8 @@ class answerSerializer(serializers.ModelSerializer):
     question=serializers.StringRelatedField(many=True, read_only=True)
     class Meta:
         model=answer
-        fields='__all__'    
+        fields='__all__''
+class pointsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Points
+        fields='__all__'
