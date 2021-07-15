@@ -19,3 +19,7 @@ class askLawyerModelViewset(viewsets.ModelViewSet):
 class answerModelViewset(viewsets.ModelViewSet):
     queryset=answer.objects.all()
     serializer_class=answerSerializer 
+    
+class pointsModelViewset(viewsets.ModelViewSet):
+    queryset=Points.objects.all()
+    serializer_class=answerSerializer
