@@ -1,17 +1,18 @@
 from django.db import models
 from api.models import askLawyer
+from django.contrib.auth.models import User
 
 
 # Create your models here.
 class forum(models.Model):
-    full_name=models.CharField(max_length=200)
-    email=models.CharField(max_length=200,null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,blank=True)
+    
     topic= models.CharField(max_length=100)
     description = models.TextField()
     created_date=models.DateTimeField(auto_now_add=True,null=True)
     
     def __str__(self):
-        return str(self.full_name)
+        return str(self.topic)
  
 
 class Discussion(models.Model):

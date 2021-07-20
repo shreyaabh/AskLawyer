@@ -22,4 +22,4 @@ class answerModelViewset(viewsets.ModelViewSet):
     
 class pointsModelViewset(viewsets.ModelViewSet):
     queryset=Points.objects.all()
-    serializer_class=answerSerializer
+    serializer_class=pointsSerializer
