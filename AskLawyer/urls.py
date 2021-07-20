@@ -16,20 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
-from api import views
-from rest_framework.routers import DefaultRouter
+from django.conf import settings
+from django.conf.urls.static import static
 
 
-router=DefaultRouter()
-
-router.register('askUserapi',views.askUserModelViewset,basename='askUser')
-router.register('questionapi',views.questionModelViewset,basename='question')
-router.register('askLawyerapi',views.askLawyerModelViewset,basename='askLawyer')
-router.register('answerapi',views.answerModelViewset,basename='answer')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('forum/',include('Forum.urls')),
-    path('',include(router.urls)),
+    path('profile/',include('wakil.urls')),
+    path('',include('api.urls')),
     
 ]
+urlpatterns += static(settings.MEDIA_URL,
+                              document_root=settings.MEDIA_ROOT)
