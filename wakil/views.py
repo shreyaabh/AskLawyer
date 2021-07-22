@@ -8,3 +8,21 @@ class profileModelViewset(viewsets.ModelViewSet):
     queryset=Profile.objects.all()
     serializer_class=ProfileSerializer
 
+class educationModelViewset(viewsets.ModelViewSet):
+    queryset=Profile.objects.all()
+    serializer_class=ProfileSerializer
+
+class experienceModelViewset(viewsets.ModelViewSet):
+    queryset=Profile.objects.all()
+    serializer_class=ProfileSerializer
+
+class awardsModelViewset(viewsets.ModelViewSet):
+    queryset=Profile.objects.all()
+    serializer_class=ProfileSerializer
+
+class linkModelViewset(viewsets.ModelViewSet):
+    queryset=Profile.objects.all()
+    serializer_class=ProfileSerializer
+
+    
+

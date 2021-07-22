@@ -7,5 +7,24 @@ class ProfileSerializer(serializers.ModelSerializer):
         model=Profile
         fields='__all__'
         
+class EducationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Education
+        fields='__all__'
+
+class ExperienceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Experience
+        fields='__all__'
+
+class AwardsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Awards
+        fields='__all__'
+
+class LinkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Link
+        fields='__all__'
 
     
