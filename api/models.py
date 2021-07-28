@@ -1,6 +1,7 @@
 from django.db import models
 
 
+
 # Create your models here.
 class askUser(models.Model):
     first_name=models.CharField(max_length=50,blank=False)
@@ -65,12 +66,32 @@ class answer(models.Model):
     def __str__(self):
         return self.answer
 
+class PointsAllocated(models.Model):
+    CHOICES= [
+        ('registration','registration'),
+        ('question','question'),
+        ('answer','answer')
+        ]
+    OPTIONS= [
+        ('active','active'),
+        ('inactive','inactive')
+        ]
+    title_choice=models.CharField(max_length=20, choices=CHOICES)
+    point = models.IntegerField(default=15, blank=False)
+    status = models.CharField(max_length=20, choices=OPTIONS)
 
 
 class Points(models.Model):
+    # user = models.ForeignKey(askLawyer, on_delete=models.CASCADE)
+    # answer = models.ForeignKey(answer, on_delete=models.CASCADE)
+    # stars= models.IntegerField(default=15, blank=True)
+
     user = models.ForeignKey(askLawyer, on_delete=models.CASCADE)
-    answer = models.ForeignKey(answer, on_delete=models.CASCADE)
-    stars= models.IntegerField(default=15, blank=True)
+    points_title=models.ForeignKey(PointsAllocated, on_delete=models.CASCADE)
+    points_earned= models.IntegerField(default=15, blank=True)
+    created_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return str(self.user)+'  '+str(self.stars)
+        return str(self.user)
+
+

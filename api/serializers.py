@@ -2,6 +2,11 @@ from django.db.models import fields
 from rest_framework import serializers
 from .models import *
 
+class pointsAllocateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Points
+        fields='__all__'
+
 class pointsSerializer(serializers.ModelSerializer):
     class Meta:
         model=Points
