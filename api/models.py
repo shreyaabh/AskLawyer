@@ -14,15 +14,15 @@ class askUser(models.Model):
         return self.email
 
 class question(models.Model):
-    CHOICES=[
-        ('Edit','Edit'),
-        ('View','View'),
-        ('Delete','Delete'),
-    ]
+    # CHOICES=[
+    #     ('Edit','Edit'),
+    #     ('View','View'),
+    #     ('Delete','Delete'),
+    # ]
     s_no=models.AutoField(primary_key=True)
     user = models.ForeignKey(askUser, on_delete=models.CASCADE)
     question=models.TextField(blank=False)
-    options=models.CharField(max_length=20, choices=CHOICES)
+    # options=models.CharField(max_length=20, choices=CHOICES)
 
     def __str__(self):
         return self.question
