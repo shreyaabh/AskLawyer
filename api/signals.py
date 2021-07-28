@@ -6,8 +6,8 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save, pre_save
 
 @receiver(pre_save, sender=User)
-def user_on_active(sender, instance, created, **kwargs):
-    if not created:
+def user_on_active(sender, instance, **kwargs):
+    if instance.pk is not None:
         oldUserObj = User.object.get(pk=instance.pk)
         userObj = instance
         if oldUserObj.active:

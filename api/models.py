@@ -44,9 +44,9 @@ class askLawyer(models.Model):
 
     def total_points(self):
         sum=0
-        stars=Points.objects.filter(user=self)
-        for point in stars:
-            sum+=point.stars
+        points_earned=Points.objects.filter(user=self)
+        for point in points_earned:
+            sum+=point.points_earned
         return sum
 
 
@@ -80,6 +80,9 @@ class PointsAllocated(models.Model):
     point = models.IntegerField(default=15, blank=False)
     status = models.CharField(max_length=20, choices=OPTIONS)
 
+    def __str__(self):
+        return str(self.title_choice)
+
 
 class Points(models.Model):
     # user = models.ForeignKey(askLawyer, on_delete=models.CASCADE)
@@ -89,7 +92,7 @@ class Points(models.Model):
     user = models.ForeignKey(askLawyer, on_delete=models.CASCADE)
     points_title=models.ForeignKey(PointsAllocated, on_delete=models.CASCADE)
     points_earned= models.IntegerField(default=15, blank=True)
-    created_at = models.DateTimeField(null=True, blank=True)
+    # created_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return str(self.user)

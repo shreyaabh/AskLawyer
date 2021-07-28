@@ -9,7 +9,7 @@ class forum(models.Model):
     
     topic= models.CharField(max_length=100)
     description = models.TextField()
-    created_date=models.DateTimeField(auto_now_add=True,null=True)
+    created_date=models.DateField(auto_now_add=True,null=True)
     
     def __str__(self):
         return str(self.topic)

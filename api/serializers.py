@@ -10,7 +10,7 @@ class pointsAllocateSerializer(serializers.ModelSerializer):
 class pointsSerializer(serializers.ModelSerializer):
     class Meta:
         model=Points
-        fields=('user','stars',)
+        fields='__all__'
 
 class askUserSerializer(serializers.ModelSerializer):
     class Meta:
