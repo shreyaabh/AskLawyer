@@ -67,6 +67,6 @@ class Profile(models.Model):
     updated_at = models.DateField(auto_now=True)
 
     def __str__(self):
-        return self.user
+        return (f"{str(self.user)} created profile on: {str(self.created_at)}")
 
 
