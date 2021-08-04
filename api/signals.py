@@ -5,14 +5,14 @@ from .models import *
 from django.dispatch import receiver
 from django.db.models.signals import post_save, pre_save
 
-@receiver(pre_save, sender=User)
-def user_on_active(sender, instance, **kwargs):
-    if instance.pk is not None:
-        oldUserObj = User.object.get(pk=instance.pk)
-        userObj = instance
-        if oldUserObj.active:
-            if userObj.active:
-                Points.objects.create(point=somepointfromPointsTableForQuestionAsked)
+# @receiver(pre_save, sender=User)
+# def user_on_active(sender, instance, **kwargs):
+#     if instance.pk is not None:
+#         oldUserObj = User.object.get(pk=instance.pk)
+#         userObj = instance
+#         if oldUserObj.active:
+#             if userObj.active:
+#                 Points.objects.create(point=somepointfromPointsTableForQuestionAsked)
 
 @receiver(pre_save, sender=question)
 def question_on_approve(sender, instance, **kwargs):
