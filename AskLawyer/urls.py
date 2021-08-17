@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('forum/',include('Forum.urls')),
     path('profile/',include('wakil.urls')),
-    path('ok/',include('api.urls')),
+    path('/',include('api.urls')),
     
 ]
 
