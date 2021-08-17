@@ -24,5 +24,9 @@ class linkModelViewset(viewsets.ModelViewSet):
     queryset=Link.objects.all()
     serializer_class=LinkSerializer
 
+class reviewModelViewset(viewsets.ModelViewSet):
+    queryset=Review.objects.all()
+    serializer_class=ReviewSerializer
+
     
 

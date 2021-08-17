@@ -70,3 +70,17 @@ class Profile(models.Model):
         return (f"{str(self.user)} created profile on: {str(self.created_at)}")
 
 
+class Review(models.Model):
+    CHOICES=[
+        ('Edit','Edit'),
+        ('View','View'),
+        ('Delete','Delete'),
+    ]
+    user= models.ForeignKey(Profile, on_delete=models.CASCADE)
+    review= models.IntegerField(blank=True) 
+    reviewed_by= models.ForeignKey(User, on_delete=models.CASCADE)
+    options=models.CharField(max_length=20, choices=CHOICES)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.user
